@@ -1,0 +1,53 @@
+class Game {
+    field Board board;
+
+    constructor Game new(){
+        let board = Board.new();
+        return this;
+    }
+
+    method void GameLoop(){
+        var boolean running;
+        var char key;
+        var int x,y;
+        var Cell cell;
+        let running = true;
+        while (running){
+            let key = Keyboard.keyPressed();
+            if (key = 130) {
+                do board.SetCursorX(-1);
+            }
+            if (key = 132) {
+                do board.SetCursorX(1);
+            }  
+            if (key = 129) {
+                do board.SetCursorY(-1);
+            }
+            if (key = 131) { 
+                do board.SetCursorY(1);
+            }
+            if (key = 32) {
+                do board.RevealCell(board.GetCursorX(), board.GetCursorY());
+            }
+            if (key = 102) {
+                do board.ToggleFlag(board.GetCursorX(), board.GetCursorY());
+            }
+            let running = CheckGameStatus();
+        }
+        return;
+    }
+
+    method boolean CheckGameStatus() {
+        if(board.IsWin()){
+            do Output.printString("You Win!");
+            do Output.println();
+            return false;
+        }
+        if(board.IsLoss()){
+            do Output.printString("Game Over!");
+            do Output.println();
+            return false;
+        }
+        return true;
+    }
+}

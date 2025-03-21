@@ -1,0 +1,50 @@
+class Cell {
+    field boolean isMine;
+    field boolean isRevealed;
+    field boolean isFlagged;
+    field int adjacentMines;
+    
+    constructor Cell new() {
+        let isMine = false;
+        let isRevealed = false;
+        let isFlagged = false;
+        let adjacentMines = 0;
+        return this;
+    }
+
+    method boolean IsMine(){
+        return isMine;
+    }
+
+    method boolean IsRevealed(){
+        return isRevealed;
+    }  
+
+    method boolean IsFlagged(){
+        return isFlagged;
+    }
+
+    method void PlaceMine(){
+        let isMine = true;
+        return;
+    }
+
+    method void RevealCell(){
+        let isRevealed = true;
+        return;
+    }
+
+    method void SetAdjasent(int count){
+        let adjacentMines = count;
+        return;
+    }
+
+    method int GetAdjasent(){
+        return adjacentMines;
+    }
+
+    method void ChangeFlag(int count){
+        let isFlagged = ~isFlagged;
+        return;
+    }
+}

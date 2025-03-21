@@ -1,0 +1,172 @@
+class Board {
+    field Array cells;
+    field int width, height, mineCount, cursorX, cursorY, flaggedMines;
+
+    constructor Board new(){
+        let width = 10;
+        let height = 10;
+        let mineCount = 20;
+        let cursorX = 0;
+        let cursorY = 0;
+        do InitializeBoard();
+        do CalculateNumbers();
+        return this;
+    }
+
+    method void InitializeBoard(){
+        var int i, index;
+        var Cell cell;
+        let i = 0;
+        while (i < (width * height)) {
+            let cell = Cell.new();
+            let cells[i] = cell;
+            let i = i + 1;
+        }
+        let i = 0;
+        while(i < mineCount){
+            let index = Random.rand(width * height);
+            let cell = cells[index];
+            if (~cell.IsMine()){
+                do cell.PlaceMine();
+                let i = i + 1;
+            }
+        }
+        return;
+    }
+
+    method void CalculateNumbers() {
+        var int i, j, x, y, index, count;
+        let i = 0;
+        while (i < width) {
+            let j = 0;
+            while (j < height) {
+                let index = i * width + j;
+                let count = 0;
+                let cell = cells[index];
+                if (~cell.IsMine()) {
+                    let x = -1;
+                    while (x < 2) {
+                        let y = -1;
+                        while (y < 2) {
+                            if (((i + x) > -1) & ((i + x) < width) & ((j + y) > -1) & ((j + y) < height)) {
+                                let cell = cells[(i + x) * width + (j + y)];
+                                if (cell.IsMine()) {
+                                    let count = count + 1;
+                                }
+                            }
+                            let y = y + 1;
+                        }
+                        let x = x + 1;
+                    }
+                    do cell.SetAdjasent(count);
+                }
+                let j = j + 1;
+            }
+            let i = i + 1;
+        }
+        return;
+    }
+    
+    method void render() {
+        var int i, j;
+        var Cell cell;
+        let i = 0;
+        while (i < width) {
+            let j = 0;
+            while (j < height) {
+                if ((i = cursorX) & (j = cursorY)) {
+                    do Output.printString("[");
+                } else {
+                    do Output.printString(" ");
+                }
+                let cell = cells[i * width + j];
+                if (cell.IsRevealed()) {
+                    if (cell.IsMine()) {
+                        do Output.printString("*");
+                    } else {
+                        do Output.printInt(cell.GetAdjasent());
+                    }
+                } else {
+                    if (cell.IsFlagged()) {
+                        do Output.printString("F");
+                    } else {
+                        do Output.printString(".");
+                    }
+                }
+                
+                if ((i = cursorX) & (j = cursorY)) {
+                    do Output.printString("]");
+                }
+                let j = j + 1;
+            }
+            do Output.println();
+            let i = i + 1;
+        }
+        return;
+    }
+
+    method void RevealCell(int x, int y) {
+        var Cell cell;
+        let cell = cells[x * width + y];
+        if ((~cell.IsRevealed()) & (~cell.IsFlagged())) {
+            do cell.RevealCell();
+        }
+        return;
+    }
+
+    method void ToggleFlag(int x, int y){
+        var Cell cell;
+        let cell = cells[x * width + y];
+        if (~cell.IsRevealed()) {
+            if (cell.IsMine()){
+                if(cell.IsFlagged()){
+                    let flaggedMines = flaggedMines - 1;
+                }
+                else{
+                    let flaggedMines = flaggedMines + 1;
+                }
+            }
+            do cell.ChangeFlag();
+        }
+        return;
+    }
+
+    method void SetCursorX(int x){
+        let cursorX = cursorX + x;
+        return;
+    }
+
+    method void SetCursorY(int y){
+        let cursorY = cursorY + y;
+        return;
+    }
+
+    method int GetCursorX(){
+        return cursorX;
+    }
+
+    method int GetCursorY(){
+        return cursorY;
+    }
+
+    method boolean IsWin(){
+        return flaggedMines = mineCount;
+    }
+
+    method boolean IsLoss(){
+        var boolean isLoss;
+        var int i;
+        var Cell cell;
+        let i = 0;
+        let isLoss = false;
+        while(i < width * height){
+            let cell = cells[i];
+            if(cell.IsRevealed() & cell.IsMine()){
+                let isLoss = true;
+                let i = width * height;
+            }
+            let i = i + 1;
+        }
+        return isLoss;
+    }
+}
