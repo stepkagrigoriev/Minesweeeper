@@ -15,13 +15,13 @@ function Cell.new 1
     push argument 0
     push constant 10
     call Math.divide 2
-    pop this 4
+    pop this 5
     push argument 0
-    push this 4
+    push this 5
     push constant 10
     call Math.multiply 2
     sub
-    pop this 5
+    pop this 4
     push pointer 0
     return
 function Cell.GetX 0

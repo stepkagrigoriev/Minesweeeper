@@ -1,12 +1,13 @@
 class Board {
     field Array cells;
-    field int width, height, mineCount, cursorX, cursorY, flaggedMines;
+    field int width, height, mineCount, cursorX, cursorY, flaggedMines, flagged;
 
     constructor Board new(){
         let width = 10;
         let height = 10;
         let cursorX = 0;
         let cursorY = 0;
+        let flagged = 0;
         let cells = Array.new(width * height);
         
         /* в конструкторе можно менять только число мин! :) под изменения размеров поля UI не настроен  */
@@ -24,6 +25,7 @@ class Board {
         while (i < (width * height)) {
             let cell = Cell.new(i);
             let cells[i] = cell;
+            do UI.RenderClosedCell(cell);
             let i = i + 1;
         }
         let i = 0;
@@ -72,33 +74,26 @@ class Board {
         return;
     }
     
-    method void Render() {
+    method void RenderCell(int x, int y) {
         var Cell cell;
-        var int i, x, y;
-        let i = 0;
-        while(i < (width * height)){
-            let cell = cells[i];
-            if(~cell.IsRevealed()){
-                if(cell.IsFlagged()){
-                    do UI.RenderFlag(cell);
-                }
-                else{ do UI.RenderClosedCell(cell); }
+        let cell = cells[y * width + x];
+        if(~cell.IsRevealed()){
+            if(cell.IsFlagged()){
+                do UI.RenderFlag(cell);
             }
-            else{ do UI.RenderOpenCell(cell); }
-            let i = i + 1;
+            else{ 
+                do UI.RenderClosedCell(cell); 
+            }
         }
-        do Output.moveCursor(12, 51);
-        do Output.moveCursor(12, 50);
-        do Output.printInt(GetCursorX());
-        do Output.moveCursor(12, 57);
-        do Output.moveCursor(12, 56);
-        do Output.printInt(GetCursorY());
+        else{ 
+            do UI.RenderOpenCell(cell);
+        }
         return;
     }
 
     method void RevealCell(int x, int y) {
         var Cell cell;
-        let cell = cells[x * width + y];
+        let cell = cells[y * width + x];
         if ((~cell.IsRevealed()) & (~cell.IsFlagged())) {
             do cell.RevealCell();
         }
@@ -107,15 +102,21 @@ class Board {
 
     method void ToggleFlag(int x, int y){
         var Cell cell;
-        let cell = cells[(x - 1) * width + (y - 1)];
+        let cell = cells[y * width + x];
         if (~cell.IsRevealed()) {
             if (cell.IsMine()){
-                if(cell.IsFlagged()){
+                if (cell.IsFlagged()){
                     let flaggedMines = flaggedMines - 1;
                 }
                 else{
                     let flaggedMines = flaggedMines + 1;
                 }
+            }
+            if(cell.IsFlagged()){
+                let flagged = flagged - 1;
+            }
+            else{
+                let flagged = flagged + 1;
             }
             do cell.ChangeFlag();
         }
@@ -145,7 +146,7 @@ class Board {
     }
 
     method boolean IsWin(){
-        return flaggedMines = mineCount;
+        return (flaggedMines = mineCount) & (mineCount = flagged);
     }
 
     method boolean IsLoss(){
@@ -154,7 +155,7 @@ class Board {
         var Cell cell;
         let i = 0;
         let isLoss = false;
-        while(i < width * height){
+        while(i < (width * height)){
             let cell = cells[i];
             if(cell.IsRevealed() & cell.IsMine()){
                 let isLoss = true;

@@ -4,7 +4,7 @@ class Game {
     constructor Game new(){
         let board = Board.new();
         do UI.RenderMainGrid();
-        do board.Render();
+
         return this;
     }
 
@@ -15,25 +15,30 @@ class Game {
         var Cell cell;
         let running = true;
         while (running){
-            do board.Render();
             let key = Keyboard.keyPressed();
             if (key = 130) {
                 do board.MoveCursorX(-1);
+                do UI.RenderCoordiantes(board.GetCursorX(), board.GetCursorY());
             }
             if (key = 132) {
                 do board.MoveCursorX(1);
+                do UI.RenderCoordiantes(board.GetCursorX(), board.GetCursorY());
             }  
-            if (key = 133) {
+            if (key = 131) {
                 do board.MoveCursorY(-1);
+                do UI.RenderCoordiantes(board.GetCursorX(), board.GetCursorY());
             }
-            if (key = 131) { 
+            if (key = 133) { 
                 do board.MoveCursorY(1);
+                do UI.RenderCoordiantes(board.GetCursorX(), board.GetCursorY());
             }
             if (key = 32) {
                 do board.RevealCell(board.GetCursorX(), board.GetCursorY());
+                do board.RenderCell(board.GetCursorX(),  board.GetCursorY());
             }
             if (key = 128) {
                 do board.ToggleFlag(board.GetCursorX(), board.GetCursorY());
+                do board.RenderCell(board.GetCursorX(),  board.GetCursorY());
             }
             let running = CheckGameStatus();
         }
@@ -51,7 +56,6 @@ class Game {
             do Output.printString("You Lose! :(");
             do Output.moveCursor(16, 50);
             do Output.printString("Game Over!");
-            do Output.println();
             return false;
         }
         return true;

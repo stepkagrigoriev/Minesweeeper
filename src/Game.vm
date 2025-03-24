@@ -6,9 +6,6 @@ function Game.new 0
     pop this 0
     call UI.RenderMainGrid 0
     pop temp 0
-    push this 0
-    call Board.Render 1
-    pop temp 0
     push pointer 0
     return
 function Game.GameLoop 5
@@ -21,9 +18,6 @@ label Game_0
     push local 0
     not
     if-goto Game_1
-    push this 0
-    call Board.Render 1
-    pop temp 0
     call Keyboard.keyPressed 0
     pop local 1
     push local 1
@@ -35,6 +29,12 @@ label Game_0
     push constant 1
     neg
     call Board.MoveCursorX 2
+    pop temp 0
+    push this 0
+    call Board.GetCursorX 1
+    push this 0
+    call Board.GetCursorY 1
+    call UI.RenderCoordiantes 2
     pop temp 0
     goto Game_2
 label Game_3
@@ -48,11 +48,17 @@ label Game_2
     push constant 1
     call Board.MoveCursorX 2
     pop temp 0
+    push this 0
+    call Board.GetCursorX 1
+    push this 0
+    call Board.GetCursorY 1
+    call UI.RenderCoordiantes 2
+    pop temp 0
     goto Game_4
 label Game_5
 label Game_4
     push local 1
-    push constant 133
+    push constant 131
     eq
     not
     if-goto Game_7
@@ -61,17 +67,29 @@ label Game_4
     neg
     call Board.MoveCursorY 2
     pop temp 0
+    push this 0
+    call Board.GetCursorX 1
+    push this 0
+    call Board.GetCursorY 1
+    call UI.RenderCoordiantes 2
+    pop temp 0
     goto Game_6
 label Game_7
 label Game_6
     push local 1
-    push constant 131
+    push constant 133
     eq
     not
     if-goto Game_9
     push this 0
     push constant 1
     call Board.MoveCursorY 2
+    pop temp 0
+    push this 0
+    call Board.GetCursorX 1
+    push this 0
+    call Board.GetCursorY 1
+    call UI.RenderCoordiantes 2
     pop temp 0
     goto Game_8
 label Game_9
@@ -88,6 +106,13 @@ label Game_8
     call Board.GetCursorY 1
     call Board.RevealCell 3
     pop temp 0
+    push this 0
+    push this 0
+    call Board.GetCursorX 1
+    push this 0
+    call Board.GetCursorY 1
+    call Board.RenderCell 3
+    pop temp 0
     goto Game_10
 label Game_11
 label Game_10
@@ -102,6 +127,13 @@ label Game_10
     push this 0
     call Board.GetCursorY 1
     call Board.ToggleFlag 3
+    pop temp 0
+    push this 0
+    push this 0
+    call Board.GetCursorX 1
+    push this 0
+    call Board.GetCursorY 1
+    call Board.RenderCell 3
     pop temp 0
     goto Game_12
 label Game_13
@@ -218,8 +250,6 @@ label Game_14
     push constant 33
     call String.appendChar 2
     call Output.printString 1
-    pop temp 0
-    call Output.println 0
     pop temp 0
     push constant 0
     return

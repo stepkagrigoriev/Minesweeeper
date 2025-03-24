@@ -14,8 +14,8 @@ class Cell {
         let isFlagged = false;
         let adjacentMines = 0;
 
-        let X = i / 10;
-        let Y = i - (X * 10);
+        let Y = i / 10;
+        let X = i - (Y * 10);
         return this;
     }
 

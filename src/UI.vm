@@ -232,6 +232,8 @@ function UI.RenderFlag 2
     push constant 24
     push argument 0
     call Cell.GetX 1
+    push constant 1
+    sub
     call Math.multiply 2
     push constant 125
     add
@@ -239,11 +241,13 @@ function UI.RenderFlag 2
     push constant 22
     push argument 0
     call Cell.GetY 1
+    push constant 1
+    sub
     call Math.multiply 2
     push constant 25
     add
     pop local 1
-    push constant 1
+    push constant 0
     call Screen.setColor 1
     pop temp 0
     push local 0
@@ -302,25 +306,49 @@ function UI.RenderFlag 2
     add
     call Screen.drawLine 4
     pop temp 0
-    push constant 0
+    push constant 1
     call Screen.setColor 1
     pop temp 0
     push constant 0
     return
 function UI.RenderOpenCell 3
+    push constant 24
     push argument 0
     call Cell.GetX 1
+    push constant 1
+    sub
+    call Math.multiply 2
     push constant 125
     add
     pop local 0
+    push constant 22
     push argument 0
     call Cell.GetY 1
+    push constant 1
+    sub
+    call Math.multiply 2
     push constant 25
     add
     pop local 1
     push argument 0
     call Cell.GetAdjasent 1
     pop local 2
+    push constant 0
+    call Screen.setColor 1
+    pop temp 0
+    push local 0
+    push local 1
+    push local 0
+    push constant 24
+    add
+    push local 1
+    push constant 22
+    add
+    call Screen.drawRectangle 4
+    pop temp 0
+    push constant 1
+    call Screen.setColor 1
+    pop temp 0
     push local 2
     push constant 0
     eq
@@ -429,6 +457,31 @@ label UI_20
     goto UI_22
 label UI_23
 label UI_22
+    push constant 0
+    return
+function UI.RenderCoordiantes 0
+    push constant 12
+    push constant 51
+    call Output.moveCursor 2
+    pop temp 0
+    push constant 12
+    push constant 50
+    call Output.moveCursor 2
+    pop temp 0
+    push argument 0
+    call Output.printInt 1
+    pop temp 0
+    push constant 12
+    push constant 57
+    call Output.moveCursor 2
+    pop temp 0
+    push constant 12
+    push constant 56
+    call Output.moveCursor 2
+    pop temp 0
+    push argument 1
+    call Output.printInt 1
+    pop temp 0
     push constant 0
     return
 function UI.Render0 0
