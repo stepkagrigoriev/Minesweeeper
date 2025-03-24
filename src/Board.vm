@@ -1,24 +1,18 @@
 function Board.new 0
-    push constant 8
+    push constant 6
     call Memory.alloc 1
     pop pointer 0
-    push constant 10
-    pop this 1
-    push constant 10
+    push constant 0
     pop this 2
     push constant 0
-    pop this 4
+    pop this 3
     push constant 0
     pop this 5
-    push constant 0
-    pop this 7
-    push this 1
-    push this 2
-    call Math.multiply 2
+    push constant 100
     call Array.new 1
     pop this 0
     push constant 10
-    pop this 3
+    pop this 1
     push pointer 0
     call Board.InitializeBoard 1
     pop temp 0
@@ -34,9 +28,7 @@ function Board.InitializeBoard 3
     pop local 0
 label Board_0
     push local 0
-    push this 1
-    push this 2
-    call Math.multiply 2
+    push constant 100
     lt
     not
     if-goto Board_1
@@ -51,8 +43,18 @@ label Board_0
     pop pointer 1
     push temp 0
     pop that 0
-    push local 2
-    call UI.RenderClosedCell 1
+    push pointer 0
+    push local 0
+    push constant 10
+    push local 0
+    push constant 10
+    call Math.divide 2
+    call Math.multiply 2
+    sub
+    push local 0
+    push constant 10
+    call Math.divide 2
+    call Board.RenderCell 3
     pop temp 0
     push local 0
     push constant 1
@@ -64,13 +66,11 @@ label Board_1
     pop local 0
 label Board_2
     push local 0
-    push this 3
+    push this 1
     lt
     not
     if-goto Board_3
-    push this 1
-    push this 2
-    call Math.multiply 2
+    push constant 100
     call Random.Randint 1
     pop local 1
     push local 1
@@ -105,7 +105,7 @@ function Board.CalculateNumbers 7
     pop local 0
 label Board_6
     push local 0
-    push this 1
+    push constant 10
     lt
     not
     if-goto Board_7
@@ -113,12 +113,12 @@ label Board_6
     pop local 1
 label Board_8
     push local 1
-    push this 2
+    push constant 10
     lt
     not
     if-goto Board_9
     push local 0
-    push this 1
+    push constant 10
     call Math.multiply 2
     push local 1
     add
@@ -163,7 +163,7 @@ label Board_14
     push local 0
     push local 2
     add
-    push this 1
+    push constant 10
     lt
     and
     push local 1
@@ -176,7 +176,7 @@ label Board_14
     push local 1
     push local 3
     add
-    push this 2
+    push constant 10
     lt
     and
     not
@@ -184,7 +184,7 @@ label Board_14
     push local 0
     push local 2
     add
-    push this 1
+    push constant 10
     call Math.multiply 2
     push local 1
     push local 3
@@ -246,7 +246,7 @@ function Board.RenderCell 1
     push argument 0
     pop pointer 0
     push argument 2
-    push this 1
+    push constant 10
     call Math.multiply 2
     push argument 1
     add
@@ -285,7 +285,7 @@ function Board.RevealCell 1
     push argument 0
     pop pointer 0
     push argument 2
-    push this 1
+    push constant 10
     call Math.multiply 2
     push argument 1
     add
@@ -315,7 +315,7 @@ function Board.ToggleFlag 1
     push argument 0
     pop pointer 0
     push argument 2
-    push this 1
+    push constant 10
     call Math.multiply 2
     push argument 1
     add
@@ -337,16 +337,16 @@ function Board.ToggleFlag 1
     call Cell.IsFlagged 1
     not
     if-goto Board_31
-    push this 6
+    push this 4
     push constant 1
     sub
-    pop this 6
+    pop this 4
     goto Board_30
 label Board_31
-    push this 6
+    push this 4
     push constant 1
     add
-    pop this 6
+    pop this 4
 label Board_30
     goto Board_28
 label Board_29
@@ -355,16 +355,16 @@ label Board_28
     call Cell.IsFlagged 1
     not
     if-goto Board_33
-    push this 7
+    push this 5
     push constant 1
     sub
-    pop this 7
+    pop this 5
     goto Board_32
 label Board_33
-    push this 7
+    push this 5
     push constant 1
     add
-    pop this 7
+    pop this 5
 label Board_32
     push local 0
     call Cell.ChangeFlag 1
@@ -377,12 +377,12 @@ label Board_26
 function Board.MoveCursorX 0
     push argument 0
     pop pointer 0
-    push this 4
+    push this 2
     push argument 1
     add
     push constant 50
     lt
-    push this 4
+    push this 2
     push argument 1
     add
     push constant 0
@@ -390,10 +390,10 @@ function Board.MoveCursorX 0
     and
     not
     if-goto Board_35
-    push this 4
+    push this 2
     push argument 1
     add
-    pop this 4
+    pop this 2
     goto Board_34
 label Board_35
 label Board_34
@@ -402,12 +402,12 @@ label Board_34
 function Board.MoveCursorY 0
     push argument 0
     pop pointer 0
-    push this 5
+    push this 3
     push argument 1
     add
     push constant 50
     lt
-    push this 5
+    push this 3
     push argument 1
     add
     push constant 0
@@ -415,10 +415,10 @@ function Board.MoveCursorY 0
     and
     not
     if-goto Board_37
-    push this 5
+    push this 3
     push argument 1
     add
-    pop this 5
+    pop this 3
     goto Board_36
 label Board_37
 label Board_36
@@ -427,7 +427,7 @@ label Board_36
 function Board.GetCursorX 0
     push argument 0
     pop pointer 0
-    push this 4
+    push this 2
     push constant 5
     call Math.divide 2
     push constant 1
@@ -436,7 +436,7 @@ function Board.GetCursorX 0
 function Board.GetCursorY 0
     push argument 0
     pop pointer 0
-    push this 5
+    push this 3
     push constant 5
     call Math.divide 2
     push constant 1
@@ -445,11 +445,11 @@ function Board.GetCursorY 0
 function Board.IsWin 0
     push argument 0
     pop pointer 0
-    push this 6
-    push this 3
+    push this 4
+    push this 1
     eq
-    push this 3
-    push this 7
+    push this 1
+    push this 5
     eq
     and
     return
@@ -462,9 +462,7 @@ function Board.IsLoss 3
     pop local 0
 label Board_38
     push local 1
-    push this 1
-    push this 2
-    call Math.multiply 2
+    push constant 100
     lt
     not
     if-goto Board_39
@@ -484,9 +482,7 @@ label Board_38
     push constant 1
     neg
     pop local 0
-    push this 1
-    push this 2
-    call Math.multiply 2
+    push constant 100
     pop local 1
     goto Board_40
 label Board_41

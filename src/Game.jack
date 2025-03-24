@@ -4,14 +4,12 @@ class Game {
     constructor Game new(){
         let board = Board.new();
         do UI.RenderMainGrid();
-
         return this;
     }
 
     method void GameLoop(){
         var boolean running;
         var char key;
-        var int x,y;
         var Cell cell;
         let running = true;
         while (running){
@@ -34,11 +32,11 @@ class Game {
             }
             if (key = 32) {
                 do board.RevealCell(board.GetCursorX(), board.GetCursorY());
-                do board.RenderCell(board.GetCursorX(),  board.GetCursorY());
+                do board.RenderCell(board.GetCursorX(), board.GetCursorY());
             }
             if (key = 128) {
                 do board.ToggleFlag(board.GetCursorX(), board.GetCursorY());
-                do board.RenderCell(board.GetCursorX(),  board.GetCursorY());
+                do board.RenderCell(board.GetCursorX(), board.GetCursorY());
             }
             let running = CheckGameStatus();
         }

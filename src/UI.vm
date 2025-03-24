@@ -214,11 +214,15 @@ function UI.RenderClosedCell 2
     call Screen.setColor 1
     pop temp 0
     push local 0
+    push constant 1
+    add
     push local 1
-    push constant 24
+    push constant 1
+    add
+    push constant 23
     push local 0
     add
-    push constant 22
+    push constant 21
     push local 1
     add
     call Screen.drawRectangle 4
@@ -232,8 +236,6 @@ function UI.RenderFlag 2
     push constant 24
     push argument 0
     call Cell.GetX 1
-    push constant 1
-    sub
     call Math.multiply 2
     push constant 125
     add
@@ -241,12 +243,27 @@ function UI.RenderFlag 2
     push constant 22
     push argument 0
     call Cell.GetY 1
-    push constant 1
-    sub
     call Math.multiply 2
     push constant 25
     add
     pop local 1
+    push constant 1
+    call Screen.setColor 1
+    pop temp 0
+    push local 0
+    push constant 1
+    add
+    push local 1
+    push constant 1
+    add
+    push constant 23
+    push local 0
+    add
+    push constant 21
+    push local 1
+    add
+    call Screen.drawRectangle 4
+    pop temp 0
     push constant 0
     call Screen.setColor 1
     pop temp 0
@@ -315,8 +332,6 @@ function UI.RenderOpenCell 3
     push constant 24
     push argument 0
     call Cell.GetX 1
-    push constant 1
-    sub
     call Math.multiply 2
     push constant 125
     add
@@ -324,8 +339,6 @@ function UI.RenderOpenCell 3
     push constant 22
     push argument 0
     call Cell.GetY 1
-    push constant 1
-    sub
     call Math.multiply 2
     push constant 25
     add
@@ -337,12 +350,16 @@ function UI.RenderOpenCell 3
     call Screen.setColor 1
     pop temp 0
     push local 0
-    push local 1
-    push local 0
-    push constant 24
+    push constant 1
     add
     push local 1
+    push constant 1
+    add
+    push local 0
     push constant 22
+    add
+    push local 1
+    push constant 21
     add
     call Screen.drawRectangle 4
     pop temp 0
@@ -982,79 +999,6 @@ function UI.Render8 0
     add
     push argument 1
     push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push argument 0
-    push constant 13
-    add
-    push argument 1
-    push constant 4
-    add
-    push argument 0
-    push constant 13
-    add
-    push argument 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push constant 0
-    return
-function UI.Render9 0
-    push argument 0
-    push constant 7
-    add
-    push argument 1
-    push constant 4
-    add
-    push argument 0
-    push constant 13
-    add
-    push argument 1
-    push constant 4
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push argument 0
-    push constant 7
-    add
-    push argument 1
-    push constant 10
-    add
-    push argument 0
-    push constant 13
-    add
-    push argument 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push argument 0
-    push constant 7
-    add
-    push argument 1
-    push constant 16
-    add
-    push argument 0
-    push constant 13
-    add
-    push argument 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push argument 0
-    push constant 7
-    add
-    push argument 1
-    push constant 4
-    add
-    push argument 0
-    push constant 7
-    add
-    push argument 1
-    push constant 10
     add
     call Screen.drawLine 4
     pop temp 0

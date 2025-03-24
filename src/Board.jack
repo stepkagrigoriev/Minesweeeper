@@ -1,14 +1,12 @@
 class Board {
     field Array cells;
-    field int width, height, mineCount, cursorX, cursorY, flaggedMines, flagged;
+    field int mineCount, cursorX, cursorY, flaggedMines, flagged;
 
     constructor Board new(){
-        let width = 10;
-        let height = 10;
         let cursorX = 0;
         let cursorY = 0;
         let flagged = 0;
-        let cells = Array.new(width * height);
+        let cells = Array.new(100);
         
         /* в конструкторе можно менять только число мин! :) под изменения размеров поля UI не настроен  */
         let mineCount = 10;
@@ -22,15 +20,15 @@ class Board {
         var int i, index;
         var Cell cell;
         let i = 0;
-        while (i < (width * height)) {
+        while (i < 100) {
             let cell = Cell.new(i);
             let cells[i] = cell;
-            do UI.RenderClosedCell(cell);
+            do RenderCell(i - (10 * (i / 10)), i / 10);
             let i = i + 1;
         }
         let i = 0;
         while(i < mineCount){
-            let index = Random.Randint(width * height);
+            let index = Random.Randint(100);
             let cell = cells[index];
             if (~cell.IsMine()){
                 do cell.PlaceMine();
@@ -44,10 +42,10 @@ class Board {
         var int i, j, x, y, index, count;
         var Cell cell;
         let i = 0;
-        while (i < width) {
+        while (i < 10) {
             let j = 0;
-            while (j < height) {
-                let index = i * width + j;
+            while (j < 10) {
+                let index = (i * 10) + j;
                 let count = 0;
                 let cell = cells[index];
                 if (~cell.IsMine()) {
@@ -55,8 +53,8 @@ class Board {
                     while (x < 2) {
                         let y = -1;
                         while (y < 2) {
-                            if (((i + x) > -1) & ((i + x) < width) & ((j + y) > -1) & ((j + y) < height)) {
-                                let cell = cells[(i + x) * width + (j + y)];
+                            if (((i + x) > -1) & ((i + x) < 10) & ((j + y) > -1) & ((j + y) < 10)) {
+                                let cell = cells[(i + x) * 10 + (j + y)];
                                 if (cell.IsMine()) {
                                     let count = count + 1;
                                 }
@@ -76,7 +74,7 @@ class Board {
     
     method void RenderCell(int x, int y) {
         var Cell cell;
-        let cell = cells[y * width + x];
+        let cell = cells[(y * 10) + x];
         if(~cell.IsRevealed()){
             if(cell.IsFlagged()){
                 do UI.RenderFlag(cell);
@@ -93,7 +91,7 @@ class Board {
 
     method void RevealCell(int x, int y) {
         var Cell cell;
-        let cell = cells[y * width + x];
+        let cell = cells[(y * 10) + x];
         if ((~cell.IsRevealed()) & (~cell.IsFlagged())) {
             do cell.RevealCell();
         }
@@ -102,7 +100,7 @@ class Board {
 
     method void ToggleFlag(int x, int y){
         var Cell cell;
-        let cell = cells[y * width + x];
+        let cell = cells[(y * 10) + x];
         if (~cell.IsRevealed()) {
             if (cell.IsMine()){
                 if (cell.IsFlagged()){
@@ -155,11 +153,11 @@ class Board {
         var Cell cell;
         let i = 0;
         let isLoss = false;
-        while(i < (width * height)){
+        while(i < 100){
             let cell = cells[i];
             if(cell.IsRevealed() & cell.IsMine()){
                 let isLoss = true;
-                let i = width * height;
+                let i = 100;
             }
             let i = i + 1;
         }

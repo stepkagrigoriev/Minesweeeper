@@ -35,15 +35,17 @@ class UI {
         let x = 24 * cell.GetX() + 125;
         let y = 22 * cell.GetY() + 25;
         do Screen.setColor(1);
-        do Screen.drawRectangle(x, y, 24 + x, 22 + y);
+        do Screen.drawRectangle(x + 1, y + 1, 23 + x, 21 + y);
         do Screen.setColor(0);
         return;
     }
 
     function void RenderFlag(Cell cell){
         var int x,y;
-        let x = 24 * (cell.GetX() - 1) + 125;
-        let y = 22 * (cell.GetY() - 1) + 25;
+        let x = 24 * cell.GetX() + 125;
+        let y = 22 * cell.GetY() + 25;
+        do Screen.setColor(1);
+        do Screen.drawRectangle(x + 1, y + 1, 23 + x, 21 + y);
         do Screen.setColor(0);
         do Screen.drawLine(x + 12, y + 3, x + 12, y + 19);
         do Screen.drawLine(x + 5, y + 19, x + 19, y + 19);
@@ -54,12 +56,12 @@ class UI {
     }
 
     function void RenderOpenCell(Cell cell){
-        var int x,y, number;
-        let x = 24 * (cell.GetX() - 1) + 125;
-        let y = 22 * (cell.GetY() - 1) + 25;
+        var int x, y, number;
+        let x = 24 * cell.GetX() + 125;
+        let y = 22 * cell.GetY() + 25;
         let number = cell.GetAdjasent();
         do Screen.setColor(0);
-        do Screen.drawRectangle(x, y, x + 24, y + 22);
+        do Screen.drawRectangle(x + 1, y + 1, x + 22, y + 21);
         do Screen.setColor(1);
         if (number = 0) { do UI.Render0(x,y); }
         if (number = 1) { do UI.Render1(x,y); }
@@ -150,15 +152,6 @@ class UI {
         do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
         do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
         do Screen.drawLine(x + 7, y + 4, x + 7, y + 16);
-        do Screen.drawLine(x + 13, y + 4, x + 13, y + 16);
-        return;
-    }
-
-    function void Render9(int x, int y){
-        do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
-        do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
-        do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
-        do Screen.drawLine(x + 7, y + 4, x + 7, y + 10);
         do Screen.drawLine(x + 13, y + 4, x + 13, y + 16);
         return;
     }
