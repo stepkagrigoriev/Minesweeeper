@@ -1,18 +1,6 @@
-function Main.main 2
-    push constant 0
-    call Cell.new 1
-    pop local 1
+function Main.main 1
     call Game.new 0
     pop local 0
-    call UI.RenderMainGrid 0
-    pop temp 0
-    push local 1
-    push constant 1
-    call Cell.SetAdjasent 2
-    pop temp 0
-    push local 1
-    call UI.RenderOpenCell 1
-    pop temp 0
     push local 0
     call Game.GameLoop 1
     pop temp 0

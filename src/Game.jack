@@ -3,6 +3,7 @@ class Game {
 
     constructor Game new(){
         let board = Board.new();
+        do UI.RenderMainGrid();
         return this;
     }
 

@@ -237,9 +237,55 @@ label Board_9
 label Board_7
     push constant 0
     return
-function Board.Render 0
+function Board.Render 2
     push argument 0
     pop pointer 0
+    push constant 0
+    pop local 1
+label Board_20
+    push local 1
+    push this 1
+    lt
+    push this 2
+    call Math.multiply 2
+    not
+    if-goto Board_21
+    push local 1
+    push this 0
+    add
+    pop pointer 1
+    push that 0
+    pop local 0
+    push local 0
+    call Cell.IsRevealed 1
+    not
+    not
+    if-goto Board_23
+    push local 0
+    call UI.RenderClosedCell 1
+    pop temp 0
+    goto Board_22
+label Board_23
+    push local 0
+    call Cell.IsFlagged 1
+    not
+    if-goto Board_25
+    push local 0
+    call UI.RenderFlag 1
+    pop temp 0
+    goto Board_24
+label Board_25
+    push local 0
+    call UI.RenderOpenCell 1
+    pop temp 0
+label Board_24
+label Board_22
+    push local 1
+    push constant 1
+    add
+    pop local 1
+    goto Board_20
+label Board_21
     push constant 0
     return
 function Board.RevealCell 1
@@ -263,13 +309,13 @@ function Board.RevealCell 1
     not
     and
     not
-    if-goto Board_21
+    if-goto Board_27
     push local 0
     call Cell.RevealCell 1
     pop temp 0
-    goto Board_20
-label Board_21
-label Board_20
+    goto Board_26
+label Board_27
+label Board_26
     push constant 0
     return
 function Board.ToggleFlag 1
@@ -289,35 +335,35 @@ function Board.ToggleFlag 1
     call Cell.IsRevealed 1
     not
     not
-    if-goto Board_23
+    if-goto Board_29
     push local 0
     call Cell.IsMine 1
     not
-    if-goto Board_25
+    if-goto Board_31
     push local 0
     call Cell.IsFlagged 1
     not
-    if-goto Board_27
+    if-goto Board_33
     push this 6
     push constant 1
     sub
     pop this 6
-    goto Board_26
-label Board_27
+    goto Board_32
+label Board_33
     push this 6
     push constant 1
     add
     pop this 6
-label Board_26
-    goto Board_24
-label Board_25
-label Board_24
+label Board_32
+    goto Board_30
+label Board_31
+label Board_30
     push local 0
     call Cell.ChangeFlag 1
     pop temp 0
-    goto Board_22
-label Board_23
-label Board_22
+    goto Board_28
+label Board_29
+label Board_28
     push constant 0
     return
 function Board.SetCursorX 0
@@ -362,14 +408,14 @@ function Board.IsLoss 3
     pop local 1
     push constant 0
     pop local 0
-label Board_28
+label Board_34
     push local 1
     push this 1
     lt
     push this 2
     call Math.multiply 2
     not
-    if-goto Board_29
+    if-goto Board_35
     push local 1
     push this 0
     add
@@ -382,7 +428,7 @@ label Board_28
     call Cell.IsMine 1
     and
     not
-    if-goto Board_31
+    if-goto Board_37
     push constant 1
     neg
     pop local 0
@@ -390,14 +436,14 @@ label Board_28
     push this 2
     call Math.multiply 2
     pop local 1
-    goto Board_30
-label Board_31
-label Board_30
+    goto Board_36
+label Board_37
+label Board_36
     push local 1
     push constant 1
     add
     pop local 1
-    goto Board_28
-label Board_29
+    goto Board_34
+label Board_35
     push local 0
     return

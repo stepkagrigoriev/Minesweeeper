@@ -10,7 +10,7 @@ class Board {
         let cells = Array.new(width * height);
         
         /* в конструкторе можно менять только число мин! :) под изменения размеров поля UI не настроен  */
-        let mineCount = 20;
+        let mineCount = 10;
 
         do InitializeBoard();
         do CalculateNumbers();
@@ -73,7 +73,24 @@ class Board {
     }
     
     method void Render() {
-    
+        var Cell cell;
+        var int i;
+        let i = 0;
+        while(i < width * height){
+            let cell = cells[i];
+            if(~cell.IsRevealed()){
+                do UI.RenderClosedCell(cell);
+            }
+            else{
+                if(cell.IsFlagged()){
+                    do UI.RenderFlag(cell);
+                }
+                else{
+                    do UI.RenderOpenCell(cell);
+                }
+            }
+            let i = i + 1;
+        }
         return;
     }
 

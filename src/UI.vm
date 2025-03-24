@@ -161,60 +161,8 @@ function UI.RenderOpenCell 3
     not
     if-goto UI_3
     push local 0
-    push constant 7
-    add
     push local 1
-    push constant 5
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 5
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 5
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 15
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 15
-    add
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 15
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 15
-    add
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 5
-    add
-    call Screen.drawLine 4
+    call UI.Render0 2
     pop temp 0
     goto UI_2
 label UI_3
@@ -225,32 +173,8 @@ label UI_2
     not
     if-goto UI_5
     push local 0
-    push constant 10
-    add
     push local 1
-    push constant 3
-    add
-    push local 0
-    push constant 10
-    add
-    push local 1
-    push constant 17
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 10
-    add
-    push local 1
-    push constant 3
-    add
-    push local 0
-    push constant 3
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
+    call UI.Render1 2
     pop temp 0
     goto UI_4
 label UI_5
@@ -261,74 +185,8 @@ label UI_4
     not
     if-goto UI_7
     push local 0
-    push constant 7
-    add
     push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 4
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 16
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
+    call UI.Render2 2
     pop temp 0
     goto UI_6
 label UI_7
@@ -339,60 +197,8 @@ label UI_6
     not
     if-goto UI_9
     push local 0
-    push constant 13
-    add
     push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 4
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 16
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
+    call UI.Render3 2
     pop temp 0
     goto UI_8
 label UI_9
@@ -403,46 +209,8 @@ label UI_8
     not
     if-goto UI_11
     push local 0
-    push constant 13
-    add
     push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
+    call UI.Render4 2
     pop temp 0
     goto UI_10
 label UI_11
@@ -453,74 +221,8 @@ label UI_10
     not
     if-goto UI_13
     push local 0
-    push constant 7
-    add
     push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 4
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 16
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
+    call UI.Render5 2
     pop temp 0
     goto UI_12
 label UI_13
@@ -531,74 +233,8 @@ label UI_12
     not
     if-goto UI_15
     push local 0
-    push constant 7
-    add
     push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 4
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 16
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
+    call UI.Render6 2
     pop temp 0
     goto UI_14
 label UI_15
@@ -609,32 +245,8 @@ label UI_14
     not
     if-goto UI_17
     push local 0
-    push constant 13
-    add
     push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 4
-    add
-    call Screen.drawLine 4
+    call UI.Render7 2
     pop temp 0
     goto UI_16
 label UI_17
@@ -645,77 +257,601 @@ label UI_16
     not
     if-goto UI_19
     push local 0
-    push constant 7
-    add
     push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 4
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 10
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 10
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 16
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 7
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 4
-    add
-    push local 0
-    push constant 13
-    add
-    push local 1
-    push constant 16
-    add
-    call Screen.drawLine 4
+    call UI.Render8 2
     pop temp 0
     goto UI_18
 label UI_19
 label UI_18
+    push constant 0
+    return
+function UI.Render0 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 5
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 5
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 5
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 15
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 15
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 15
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 15
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 5
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render1 0
+    push argument 0
+    push constant 10
+    add
+    push argument 1
+    push constant 3
+    add
+    push argument 0
+    push constant 10
+    add
+    push argument 1
+    push constant 17
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 10
+    add
+    push argument 1
+    push constant 3
+    add
+    push argument 0
+    push constant 5
+    add
+    push argument 1
+    push constant 12
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render2 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render3 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render4 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render5 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render6 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render7 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render8 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push constant 0
+    return
+function UI.Render9 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 16
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 7
+    add
+    push argument 1
+    push constant 10
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 4
+    add
+    push argument 0
+    push constant 13
+    add
+    push argument 1
+    push constant 16
+    add
+    call Screen.drawLine 4
+    pop temp 0
     push constant 0
     return
