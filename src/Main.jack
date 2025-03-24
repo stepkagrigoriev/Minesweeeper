@@ -1,5 +1,5 @@
 class Main {
-    function void Main(){
+    function void main(){
         var Game minesweeper;
         let minesweeper = Game.new();
         do minesweeper.GameLoop();

@@ -43,7 +43,7 @@ class Cell {
         return adjacentMines;
     }
 
-    method void ChangeFlag(int count){
+    method void ChangeFlag(){
         let isFlagged = ~isFlagged;
         return;
     }

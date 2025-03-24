@@ -5,9 +5,13 @@ class Board {
     constructor Board new(){
         let width = 10;
         let height = 10;
-        let mineCount = 20;
         let cursorX = 0;
         let cursorY = 0;
+        let cells = Array.new(width * height);
+        
+        /* в конструкторе можно менять только число мин! :) под изменения размеров поля UI не настроен  */
+        let mineCount = 20;
+
         do InitializeBoard();
         do CalculateNumbers();
         return this;
@@ -24,7 +28,7 @@ class Board {
         }
         let i = 0;
         while(i < mineCount){
-            let index = Random.rand(width * height);
+            let index = Random.Randint(width * height);
             let cell = cells[index];
             if (~cell.IsMine()){
                 do cell.PlaceMine();
@@ -36,6 +40,7 @@ class Board {
 
     method void CalculateNumbers() {
         var int i, j, x, y, index, count;
+        var Cell cell;
         let i = 0;
         while (i < width) {
             let j = 0;
@@ -67,41 +72,7 @@ class Board {
         return;
     }
     
-    method void render() {
-        var int i, j;
-        var Cell cell;
-        let i = 0;
-        while (i < width) {
-            let j = 0;
-            while (j < height) {
-                if ((i = cursorX) & (j = cursorY)) {
-                    do Output.printString("[");
-                } else {
-                    do Output.printString(" ");
-                }
-                let cell = cells[i * width + j];
-                if (cell.IsRevealed()) {
-                    if (cell.IsMine()) {
-                        do Output.printString("*");
-                    } else {
-                        do Output.printInt(cell.GetAdjasent());
-                    }
-                } else {
-                    if (cell.IsFlagged()) {
-                        do Output.printString("F");
-                    } else {
-                        do Output.printString(".");
-                    }
-                }
-                
-                if ((i = cursorX) & (j = cursorY)) {
-                    do Output.printString("]");
-                }
-                let j = j + 1;
-            }
-            do Output.println();
-            let i = i + 1;
-        }
+    method void Render() {
         return;
     }
 
@@ -158,7 +129,7 @@ class Board {
         var int i;
         var Cell cell;
         let i = 0;
-        let isLoss = false;
+        let isLoss = false
         while(i < width * height){
             let cell = cells[i];
             if(cell.IsRevealed() & cell.IsMine()){

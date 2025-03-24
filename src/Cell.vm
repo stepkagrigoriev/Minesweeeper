@@ -1,0 +1,65 @@
+function Cell.new 0
+    push constant 4
+    call Memory.alloc 1
+    pop pointer 0
+    push constant 0
+    pop this 0
+    push constant 0
+    pop this 1
+    push constant 0
+    pop this 2
+    push constant 0
+    pop this 3
+    push pointer 0
+    return
+function Cell.IsMine 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    return
+function Cell.IsRevealed 0
+    push argument 0
+    pop pointer 0
+    push this 1
+    return
+function Cell.IsFlagged 0
+    push argument 0
+    pop pointer 0
+    push this 2
+    return
+function Cell.PlaceMine 0
+    push argument 0
+    pop pointer 0
+    push constant 1
+    neg
+    pop this 0
+    push constant 0
+    return
+function Cell.RevealCell 0
+    push argument 0
+    pop pointer 0
+    push constant 1
+    neg
+    pop this 1
+    push constant 0
+    return
+function Cell.SetAdjasent 0
+    push argument 0
+    pop pointer 0
+    push argument 1
+    pop this 3
+    push constant 0
+    return
+function Cell.GetAdjasent 0
+    push argument 0
+    pop pointer 0
+    push this 3
+    return
+function Cell.ChangeFlag 0
+    push argument 0
+    pop pointer 0
+    push this 2
+    not
+    pop this 2
+    push constant 0
+    return
