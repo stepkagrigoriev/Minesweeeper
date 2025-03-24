@@ -3,13 +3,31 @@ class Cell {
     field boolean isRevealed;
     field boolean isFlagged;
     field int adjacentMines;
-    
-    constructor Cell new() {
+    field int X;
+    field int Y;
+
+    constructor Cell new(int i) {
+        var int k;
+        let k = 0;
         let isMine = false;
         let isRevealed = false;
         let isFlagged = false;
         let adjacentMines = 0;
+        while(i > 9){
+            let i = i - 10;
+            let k = k + 1;
+        }
+        let X = i;
+        let Y = k;
         return this;
+    }
+
+    method int GetX(){
+        return X;
+    }
+
+    method void GetY(){
+        return Y;
     }
 
     method boolean IsMine(){

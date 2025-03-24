@@ -22,7 +22,7 @@ class Board {
         var Cell cell;
         let i = 0;
         while (i < (width * height)) {
-            let cell = Cell.new();
+            let cell = Cell.new(i);
             let cells[i] = cell;
             let i = i + 1;
         }
@@ -73,6 +73,7 @@ class Board {
     }
     
     method void Render() {
+    
         return;
     }
 
@@ -129,7 +130,7 @@ class Board {
         var int i;
         var Cell cell;
         let i = 0;
-        let isLoss = false
+        let isLoss = false;
         while(i < width * height){
             let cell = cells[i];
             if(cell.IsRevealed() & cell.IsMine()){

@@ -6,8 +6,6 @@ function Board.new 0
     pop this 1
     push constant 10
     pop this 2
-    push constant 20
-    pop this 3
     push constant 0
     pop this 4
     push constant 0
@@ -17,6 +15,8 @@ function Board.new 0
     call Math.multiply 2
     call Array.new 1
     pop this 0
+    push constant 20
+    pop this 3
     push pointer 0
     call Board.InitializeBoard 1
     pop temp 0
@@ -38,7 +38,8 @@ label Board_0
     lt
     not
     if-goto Board_1
-    call Cell.new 0
+    push local 0
+    call Cell.new 1
     pop local 2
     push local 0
     push this 0

@@ -1,7 +1,13 @@
 class Main {
     function void main(){
         var Game minesweeper;
+        var Cell cell;
+        let cell = Cell.new(0);
+        
         let minesweeper = Game.new();
+        do UI.RenderMainGrid();
+        do cell.SetAdjasent(1);
+        do UI.RenderOpenCell(cell);
         do minesweeper.GameLoop();
         return;
     }

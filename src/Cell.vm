@@ -1,7 +1,9 @@
-function Cell.new 0
-    push constant 4
+function Cell.new 1
+    push constant 6
     call Memory.alloc 1
     pop pointer 0
+    push constant 0
+    pop local 0
     push constant 0
     pop this 0
     push constant 0
@@ -10,7 +12,37 @@ function Cell.new 0
     pop this 2
     push constant 0
     pop this 3
+label Cell_0
+    push argument 0
+    push constant 9
+    gt
+    not
+    if-goto Cell_1
+    push argument 0
+    push constant 10
+    sub
+    pop argument 0
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto Cell_0
+label Cell_1
+    push argument 0
+    pop this 4
+    push local 0
+    pop this 5
     push pointer 0
+    return
+function Cell.GetX 0
+    push argument 0
+    pop pointer 0
+    push this 4
+    return
+function Cell.GetY 0
+    push argument 0
+    pop pointer 0
+    push this 5
     return
 function Cell.IsMine 0
     push argument 0

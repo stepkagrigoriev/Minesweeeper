@@ -1,3 +1,104 @@
 class UI {
+    function void RenderMainGrid(){
+        var int i;
+        let i = 0;
+        while(i < 11){
+            do Screen.drawLine(125, 15 + (20 * i), 325, 15 + (20 * i));
+            do Screen.drawLine(125 + (20 * i), 15, 125 + (20 * i), 215);
+            let i = i + 1;
+        }
+        return;
+    }
 
+    function void RenderClosedCell(Cell cell){
+        var int x,y;
+        let x = cell.GetX() + 125;
+        let y = cell.GetY() + 15;
+        do Screen.drawRectangle(x, y, 20 + x, 20 + y);
+        return;
+    }
+
+    function void RenderFlag(Cell cell){
+        var int x,y;
+        let x = cell.GetX() + 125;
+        let y = cell.GetY() + 15;
+        do Screen.setColor(1);
+        do Screen.drawLine(x + 10, y + 2, x + 10, y + 18);
+        do Screen.drawLine(x + 6, y + 18, x + 14, y + 18);
+        do Screen.drawLine(x + 10, y + 2, x + 15, y + 7);
+        do Screen.drawLine(x + 15, y + 7, x + 10, y + 12);
+        do Screen.setColor(0);
+        return;
+    }
+
+    function void RenderOpenCell(Cell cell){
+        var int x,y, number;
+        let x = cell.GetX() + 125;
+        let y = cell.GetY() + 15;
+        let number = cell.GetAdjasent();
+        if (number = 0){
+            do Screen.drawLine(x + 7, y + 5, x + 13, y + 5);
+            do Screen.drawLine(x + 13, y + 5, x + 13, y + 15);
+            do Screen.drawLine(x + 13, y + 15, x + 7, y + 15);
+            do Screen.drawLine(x + 7, y + 15, x + 7, y + 5);
+        }
+        if (number = 1){
+            do Screen.drawLine(x + 10, y + 3, x + 10, y + 1∂7);
+            do Screen.drawLine(x + 10, y + 3, x + 5, y + 12);
+        }
+        if (number = 2){
+            do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
+            do Screen.drawLine(x + 13, y + 4, x + 13, y + 10);
+            do Screen.drawLine(x + 13, y + 10, x + 7, y + 10);
+            do Screen.drawLine(x + 7, y + 10, x + 7, y + 16);
+            do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
+        }
+
+        if (number = 3){
+            do Screen.drawLine(x + 13, y + 4, x + 13, y + 16);
+            do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
+            do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
+            do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
+        }
+
+        if (number = 4){
+            do Screen.drawLine(x + 13, y + 4, x + 13, y + 16);
+            do Screen.drawLine(x + 7, y + 4, x + 7, y + 10);
+            do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
+        }
+
+        if (number = 5){
+            do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
+            do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
+            do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
+            do Screen.drawLine(x + 7, y + 4, x + 7, y + 10);
+            do Screen.drawLine(x + 13, y + 10, x + 13, y + 16);
+        }
+
+        if (number = 6){
+            do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
+            do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
+            do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
+            do Screen.drawLine(x + 7, y + 4, x + 7, y + 16);
+            do Screen.drawLine(x + 13, y + 10, x + 13, y + 16);
+        }
+
+        if (number = 7){
+            do Screen.drawLine(x + 13, y + 4, x + 13, y + 16);
+            do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
+        }
+
+        if (number = 8){
+            do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
+            do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
+            do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
+            do Screen.drawLine(x + 7, y + 4, x + 7, y + 16);
+            do Screen.drawLine(x + 13, y + 4, x + 13, y + 16);
+        }
+
+        return;
+    }
+
+
+    
 }
