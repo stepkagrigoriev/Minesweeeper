@@ -8,31 +8,31 @@ label UI_0
     not
     if-goto UI_1
     push constant 125
-    push constant 15
-    push constant 20
+    push constant 25
+    push constant 22
     push local 0
     call Math.multiply 2
     add
-    push constant 325
-    push constant 15
-    push constant 20
+    push constant 365
+    push constant 25
+    push constant 22
     push local 0
     call Math.multiply 2
     add
     call Screen.drawLine 4
     pop temp 0
     push constant 125
-    push constant 20
+    push constant 24
     push local 0
     call Math.multiply 2
     add
-    push constant 15
+    push constant 25
     push constant 125
-    push constant 20
+    push constant 24
     push local 0
     call Math.multiply 2
     add
-    push constant 215
+    push constant 245
     call Screen.drawLine 4
     pop temp 0
     push local 0
@@ -41,98 +41,264 @@ label UI_0
     pop local 0
     goto UI_0
 label UI_1
-    push constant 0
-    return
-function UI.RenderClosedCell 2
-    push argument 0
-    call Cell.GetX 1
-    push constant 125
+    push constant 1
+    pop local 0
+label UI_2
+    push local 0
+    push constant 11
+    lt
+    not
+    if-goto UI_3
+    push constant 1
+    push constant 2
+    push local 0
+    call Math.multiply 2
+    add
+    push constant 13
+    call Output.moveCursor 2
+    pop temp 0
+    push local 0
+    call Output.printInt 1
+    pop temp 0
+    push local 0
+    push constant 1
     add
     pop local 0
-    push argument 0
-    call Cell.GetY 1
+    goto UI_2
+label UI_3
+    push constant 1
+    pop local 0
+label UI_4
+    push local 0
+    push constant 11
+    lt
+    not
+    if-goto UI_5
+    push constant 1
+    push constant 13
+    push constant 3
+    push local 0
+    call Math.multiply 2
+    add
+    call Output.moveCursor 2
+    pop temp 0
+    push local 0
+    call Output.printInt 1
+    pop temp 0
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    goto UI_4
+label UI_5
+    push constant 10
+    push constant 47
+    call Output.moveCursor 2
+    pop temp 0
+    push constant 14
+    call String.new 1
+    push constant 67
+    call String.appendChar 2
+    push constant 85
+    call String.appendChar 2
+    push constant 82
+    call String.appendChar 2
+    push constant 83
+    call String.appendChar 2
+    push constant 79
+    call String.appendChar 2
+    push constant 82
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 76
+    call String.appendChar 2
+    push constant 79
+    call String.appendChar 2
+    push constant 67
+    call String.appendChar 2
+    push constant 65
+    call String.appendChar 2
+    push constant 84
+    call String.appendChar 2
+    push constant 69
+    call String.appendChar 2
+    push constant 68
+    call String.appendChar 2
+    call Output.printString 1
+    pop temp 0
+    push constant 11
+    push constant 47
+    call Output.moveCursor 2
+    pop temp 0
     push constant 15
-    add
-    pop local 1
-    push local 0
-    push local 1
-    push constant 20
-    push local 0
-    add
-    push constant 20
-    push local 1
-    add
-    call Screen.drawRectangle 4
+    call String.new 1
+    push constant 73
+    call String.appendChar 2
+    push constant 78
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    push constant 67
+    call String.appendChar 2
+    push constant 79
+    call String.appendChar 2
+    push constant 79
+    call String.appendChar 2
+    push constant 82
+    call String.appendChar 2
+    push constant 68
+    call String.appendChar 2
+    push constant 73
+    call String.appendChar 2
+    push constant 78
+    call String.appendChar 2
+    push constant 65
+    call String.appendChar 2
+    push constant 84
+    call String.appendChar 2
+    push constant 69
+    call String.appendChar 2
+    push constant 83
+    call String.appendChar 2
+    push constant 58
+    call String.appendChar 2
+    call Output.printString 1
+    pop temp 0
+    push constant 12
+    push constant 48
+    call Output.moveCursor 2
+    pop temp 0
+    push constant 3
+    call String.new 1
+    push constant 88
+    call String.appendChar 2
+    push constant 58
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    call Output.printString 1
+    pop temp 0
+    push constant 12
+    push constant 54
+    call Output.moveCursor 2
+    pop temp 0
+    push constant 3
+    call String.new 1
+    push constant 89
+    call String.appendChar 2
+    push constant 58
+    call String.appendChar 2
+    push constant 32
+    call String.appendChar 2
+    call Output.printString 1
     pop temp 0
     push constant 0
     return
-function UI.RenderFlag 2
+function UI.RenderClosedCell 2
+    push constant 24
     push argument 0
     call Cell.GetX 1
+    call Math.multiply 2
     push constant 125
     add
     pop local 0
+    push constant 22
     push argument 0
     call Cell.GetY 1
-    push constant 15
+    call Math.multiply 2
+    push constant 25
     add
     pop local 1
     push constant 1
     call Screen.setColor 1
     pop temp 0
     push local 0
-    push constant 10
-    add
     push local 1
-    push constant 2
-    add
+    push constant 24
     push local 0
-    push constant 10
     add
+    push constant 22
     push local 1
-    push constant 18
     add
-    call Screen.drawLine 4
+    call Screen.drawRectangle 4
+    pop temp 0
+    push constant 0
+    call Screen.setColor 1
+    pop temp 0
+    push constant 0
+    return
+function UI.RenderFlag 2
+    push constant 24
+    push argument 0
+    call Cell.GetX 1
+    call Math.multiply 2
+    push constant 125
+    add
+    pop local 0
+    push constant 22
+    push argument 0
+    call Cell.GetY 1
+    call Math.multiply 2
+    push constant 25
+    add
+    pop local 1
+    push constant 1
+    call Screen.setColor 1
     pop temp 0
     push local 0
-    push constant 6
-    add
-    push local 1
-    push constant 18
-    add
-    push local 0
-    push constant 14
-    add
-    push local 1
-    push constant 18
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 10
-    add
-    push local 1
-    push constant 2
-    add
-    push local 0
-    push constant 15
-    add
-    push local 1
-    push constant 7
-    add
-    call Screen.drawLine 4
-    pop temp 0
-    push local 0
-    push constant 15
-    add
-    push local 1
-    push constant 7
-    add
-    push local 0
-    push constant 10
-    add
-    push local 1
     push constant 12
+    add
+    push local 1
+    push constant 3
+    add
+    push local 0
+    push constant 12
+    add
+    push local 1
+    push constant 19
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push local 0
+    push constant 5
+    add
+    push local 1
+    push constant 19
+    add
+    push local 0
+    push constant 19
+    add
+    push local 1
+    push constant 19
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push local 0
+    push constant 12
+    add
+    push local 1
+    push constant 3
+    add
+    push local 0
+    push constant 17
+    add
+    push local 1
+    push constant 8
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push local 0
+    push constant 17
+    add
+    push local 1
+    push constant 8
+    add
+    push local 0
+    push constant 12
+    add
+    push local 1
+    push constant 14
     add
     call Screen.drawLine 4
     pop temp 0
@@ -149,7 +315,7 @@ function UI.RenderOpenCell 3
     pop local 0
     push argument 0
     call Cell.GetY 1
-    push constant 15
+    push constant 25
     add
     pop local 1
     push argument 0
@@ -159,166 +325,166 @@ function UI.RenderOpenCell 3
     push constant 0
     eq
     not
-    if-goto UI_3
-    push local 0
-    push local 1
-    call UI.Render0 2
-    pop temp 0
-    goto UI_2
-label UI_3
-label UI_2
-    push local 2
-    push constant 1
-    eq
-    not
-    if-goto UI_5
-    push local 0
-    push local 1
-    call UI.Render1 2
-    pop temp 0
-    goto UI_4
-label UI_5
-label UI_4
-    push local 2
-    push constant 2
-    eq
-    not
     if-goto UI_7
     push local 0
     push local 1
-    call UI.Render2 2
+    call UI.Render0 2
     pop temp 0
     goto UI_6
 label UI_7
 label UI_6
     push local 2
-    push constant 3
+    push constant 1
     eq
     not
     if-goto UI_9
     push local 0
     push local 1
-    call UI.Render3 2
+    call UI.Render1 2
     pop temp 0
     goto UI_8
 label UI_9
 label UI_8
     push local 2
-    push constant 4
+    push constant 2
     eq
     not
     if-goto UI_11
     push local 0
     push local 1
-    call UI.Render4 2
+    call UI.Render2 2
     pop temp 0
     goto UI_10
 label UI_11
 label UI_10
     push local 2
-    push constant 5
+    push constant 3
     eq
     not
     if-goto UI_13
     push local 0
     push local 1
-    call UI.Render5 2
+    call UI.Render3 2
     pop temp 0
     goto UI_12
 label UI_13
 label UI_12
     push local 2
-    push constant 6
+    push constant 4
     eq
     not
     if-goto UI_15
     push local 0
     push local 1
-    call UI.Render6 2
+    call UI.Render4 2
     pop temp 0
     goto UI_14
 label UI_15
 label UI_14
     push local 2
-    push constant 7
+    push constant 5
     eq
     not
     if-goto UI_17
     push local 0
     push local 1
-    call UI.Render7 2
+    call UI.Render5 2
     pop temp 0
     goto UI_16
 label UI_17
 label UI_16
     push local 2
-    push constant 8
+    push constant 6
     eq
     not
     if-goto UI_19
     push local 0
     push local 1
-    call UI.Render8 2
+    call UI.Render6 2
     pop temp 0
     goto UI_18
 label UI_19
 label UI_18
+    push local 2
+    push constant 7
+    eq
+    not
+    if-goto UI_21
+    push local 0
+    push local 1
+    call UI.Render7 2
+    pop temp 0
+    goto UI_20
+label UI_21
+label UI_20
+    push local 2
+    push constant 8
+    eq
+    not
+    if-goto UI_23
+    push local 0
+    push local 1
+    call UI.Render8 2
+    pop temp 0
+    goto UI_22
+label UI_23
+label UI_22
     push constant 0
     return
 function UI.Render0 0
     push argument 0
-    push constant 7
+    push constant 8
     add
     push argument 1
-    push constant 5
+    push constant 6
     add
     push argument 0
-    push constant 13
+    push constant 14
     add
     push argument 1
-    push constant 5
+    push constant 6
     add
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 13
+    push constant 14
     add
     push argument 1
-    push constant 5
+    push constant 6
     add
     push argument 0
-    push constant 13
+    push constant 14
     add
     push argument 1
-    push constant 15
+    push constant 16
     add
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 13
+    push constant 14
     add
     push argument 1
-    push constant 15
+    push constant 16
     add
     push argument 0
-    push constant 7
+    push constant 8
     add
     push argument 1
-    push constant 15
+    push constant 16
     add
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 8
     add
     push argument 1
-    push constant 15
+    push constant 16
     add
     push argument 0
-    push constant 7
+    push constant 8
     add
     push argument 1
-    push constant 5
+    push constant 6
     add
     call Screen.drawLine 4
     pop temp 0
@@ -326,21 +492,21 @@ function UI.Render0 0
     return
 function UI.Render1 0
     push argument 0
-    push constant 10
+    push constant 12
     add
     push argument 1
-    push constant 3
+    push constant 4
     add
     push argument 0
-    push constant 10
+    push constant 12
     add
     push argument 1
-    push constant 17
+    push constant 20
     add
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 10
+    push constant 12
     add
     push argument 1
     push constant 3

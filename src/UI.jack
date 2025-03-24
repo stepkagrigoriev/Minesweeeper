@@ -3,30 +3,52 @@ class UI {
         var int i;
         let i = 0;
         while(i < 11){
-            do Screen.drawLine(125, 15 + (20 * i), 325, 15 + (20 * i));
-            do Screen.drawLine(125 + (20 * i), 15, 125 + (20 * i), 215);
+            do Screen.drawLine(125, 25 + (22 * i), 365, 25 + (22 * i));
+            do Screen.drawLine(125 + (24 * i), 25, 125 + (24 * i), 245);
             let i = i + 1;
         }
+        let i = 1;
+        while(i < 11){
+            do Output.moveCursor(1 + (2 * i), 13);
+            do Output.printInt(i);
+            let i = i + 1;
+        }
+        let i = 1;
+        while(i < 11){
+            do Output.moveCursor(1, 13 + (3 * i));
+            do Output.printInt(i);
+            let i = i + 1;
+        }
+        do Output.moveCursor(10, 47);
+        do Output.printString("CURSOR LOCATED");
+        do Output.moveCursor(11, 47);
+        do Output.printString("IN COORDINATES:");
+        do Output.moveCursor(12, 48);
+        do Output.printString("X: ");
+        do Output.moveCursor(12, 54);
+        do Output.printString("Y: ");
         return;
     }
 
     function void RenderClosedCell(Cell cell){
         var int x,y;
-        let x = cell.GetX() + 125;
-        let y = cell.GetY() + 15;
-        do Screen.drawRectangle(x, y, 20 + x, 20 + y);
+        let x = 24 * cell.GetX() + 125;
+        let y = 22 * cell.GetY() + 25;
+        do Screen.setColor(1);
+        do Screen.drawRectangle(x, y, 24 + x, 22 + y);
+        do Screen.setColor(0);
         return;
     }
 
     function void RenderFlag(Cell cell){
         var int x,y;
-        let x = cell.GetX() + 125;
-        let y = cell.GetY() + 15;
+        let x = 24 * cell.GetX() + 125;
+        let y = 22 * cell.GetY() + 25;
         do Screen.setColor(1);
-        do Screen.drawLine(x + 10, y + 2, x + 10, y + 18);
-        do Screen.drawLine(x + 6, y + 18, x + 14, y + 18);
-        do Screen.drawLine(x + 10, y + 2, x + 15, y + 7);
-        do Screen.drawLine(x + 15, y + 7, x + 10, y + 12);
+        do Screen.drawLine(x + 12, y + 3, x + 12, y + 19);
+        do Screen.drawLine(x + 5, y + 19, x + 19, y + 19);
+        do Screen.drawLine(x + 12, y + 3, x + 17, y + 8);
+        do Screen.drawLine(x + 17, y + 8, x + 12, y + 14);
         do Screen.setColor(0);
         return;
     }
@@ -34,7 +56,7 @@ class UI {
     function void RenderOpenCell(Cell cell){
         var int x,y, number;
         let x = cell.GetX() + 125;
-        let y = cell.GetY() + 15;
+        let y = cell.GetY() + 25;
         let number = cell.GetAdjasent();
         if (number = 0) { do UI.Render0(x,y); }
         if (number = 1) { do UI.Render1(x,y); }
@@ -44,22 +66,22 @@ class UI {
         if (number = 5) { do UI.Render5(x,y); }
         if (number = 6) { do UI.Render6(x,y); }
         if (number = 7) { do UI.Render7(x,y); }
-        if (number = 8) { do UI.Render8(x, y); }
+        if (number = 8) { do UI.Render8(x,y); }
         return;
     }
 
 
     function void Render0(int x, int y){
-        do Screen.drawLine(x + 7, y + 5, x + 13, y + 5);
-        do Screen.drawLine(x + 13, y + 5, x + 13, y + 15);
-        do Screen.drawLine(x + 13, y + 15, x + 7, y + 15);
-        do Screen.drawLine(x + 7, y + 15, x + 7, y + 5);
+        do Screen.drawLine(x + 8, y + 6, x + 14, y + 6);
+        do Screen.drawLine(x + 14, y + 6, x + 14, y + 16);
+        do Screen.drawLine(x + 14, y + 16, x + 8, y + 16);
+        do Screen.drawLine(x + 8, y + 16, x + 8, y + 6);
         return;
     }
 
     function void Render1(int x, int y){
-        do Screen.drawLine(x + 10, y + 3, x + 10, y + 17);
-        do Screen.drawLine(x + 10, y + 3, x + 5, y + 12);
+        do Screen.drawLine(x + 12, y + 4, x + 12, y + 20);
+        do Screen.drawLine(x + 12, y + 3, x + 5, y + 12);
         return;
     }
 

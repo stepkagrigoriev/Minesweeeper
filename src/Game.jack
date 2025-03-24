@@ -4,6 +4,7 @@ class Game {
     constructor Game new(){
         let board = Board.new();
         do UI.RenderMainGrid();
+        do board.Render();
         return this;
     }
 
@@ -16,25 +17,22 @@ class Game {
         while (running){
             do board.Render();
             let key = Keyboard.keyPressed();
-            while(~(key = 0)){
-                let key = Keyboard.keyPressed();
-            }
             if (key = 130) {
-                do board.SetCursorX(-1);
+                do board.MoveCursorX(-1);
             }
             if (key = 132) {
-                do board.SetCursorX(1);
+                do board.MoveCursorX(1);
             }  
-            if (key = 129) {
-                do board.SetCursorY(-1);
+            if (key = 133) {
+                do board.MoveCursorY(-1);
             }
             if (key = 131) { 
-                do board.SetCursorY(1);
+                do board.MoveCursorY(1);
             }
             if (key = 32) {
                 do board.RevealCell(board.GetCursorX(), board.GetCursorY());
             }
-            if (key = 102) {
+            if (key = 128) {
                 do board.ToggleFlag(board.GetCursorX(), board.GetCursorY());
             }
             let running = CheckGameStatus();
@@ -44,11 +42,14 @@ class Game {
 
     method boolean CheckGameStatus() {
         if(board.IsWin()){
-            do Output.printString("You Win!");
-            do Output.println();
+            do Output.moveCursor(15, 50);
+            do Output.printString("You Win! :)");
             return false;
         }
         if(board.IsLoss()){
+            do Output.moveCursor(15, 50);
+            do Output.printString("You Lose! :(");
+            do Output.moveCursor(16, 50);
             do Output.printString("Game Over!");
             do Output.println();
             return false;

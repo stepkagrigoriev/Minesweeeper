@@ -74,23 +74,25 @@ class Board {
     
     method void Render() {
         var Cell cell;
-        var int i;
+        var int i, x, y;
         let i = 0;
-        while(i < width * height){
+        while(i < (width * height)){
             let cell = cells[i];
             if(~cell.IsRevealed()){
-                do UI.RenderClosedCell(cell);
-            }
-            else{
                 if(cell.IsFlagged()){
                     do UI.RenderFlag(cell);
                 }
-                else{
-                    do UI.RenderOpenCell(cell);
-                }
+                else{ do UI.RenderClosedCell(cell); }
             }
+            else{ do UI.RenderOpenCell(cell); }
             let i = i + 1;
         }
+        do Output.moveCursor(12, 51);
+        do Output.moveCursor(12, 50);
+        do Output.printInt(GetCursorX());
+        do Output.moveCursor(12, 57);
+        do Output.moveCursor(12, 56);
+        do Output.printInt(GetCursorY());
         return;
     }
 
@@ -105,7 +107,7 @@ class Board {
 
     method void ToggleFlag(int x, int y){
         var Cell cell;
-        let cell = cells[x * width + y];
+        let cell = cells[(x - 1) * width + (y - 1)];
         if (~cell.IsRevealed()) {
             if (cell.IsMine()){
                 if(cell.IsFlagged()){
@@ -120,22 +122,26 @@ class Board {
         return;
     }
 
-    method void SetCursorX(int x){
-        let cursorX = cursorX + x;
+    method void MoveCursorX(int x){
+        if ((cursorX + x < 50) & (cursorX + x > 0)){
+            let cursorX = cursorX + x;
+        }
         return;
     }
 
-    method void SetCursorY(int y){
-        let cursorY = cursorY + y;
+    method void MoveCursorY(int y){
+        if ((cursorY + y < 50) & (cursorY + y > 0)){
+            let cursorY = cursorY + y;
+        }
         return;
     }
 
     method int GetCursorX(){
-        return cursorX;
+        return (cursorX / 5) + 1;
     }
 
     method int GetCursorY(){
-        return cursorY;
+        return (cursorY / 5) + 1;
     }
 
     method boolean IsWin(){

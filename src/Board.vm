@@ -15,7 +15,7 @@ function Board.new 0
     call Math.multiply 2
     call Array.new 1
     pop this 0
-    push constant 20
+    push constant 10
     pop this 3
     push pointer 0
     call Board.InitializeBoard 1
@@ -237,7 +237,7 @@ label Board_9
 label Board_7
     push constant 0
     return
-function Board.Render 2
+function Board.Render 4
     push argument 0
     pop pointer 0
     push constant 0
@@ -245,9 +245,9 @@ function Board.Render 2
 label Board_20
     push local 1
     push this 1
-    lt
     push this 2
     call Math.multiply 2
+    lt
     not
     if-goto Board_21
     push local 1
@@ -262,11 +262,6 @@ label Board_20
     not
     if-goto Board_23
     push local 0
-    call UI.RenderClosedCell 1
-    pop temp 0
-    goto Board_22
-label Board_23
-    push local 0
     call Cell.IsFlagged 1
     not
     if-goto Board_25
@@ -276,9 +271,14 @@ label Board_23
     goto Board_24
 label Board_25
     push local 0
-    call UI.RenderOpenCell 1
+    call UI.RenderClosedCell 1
     pop temp 0
 label Board_24
+    goto Board_22
+label Board_23
+    push local 0
+    call UI.RenderOpenCell 1
+    pop temp 0
 label Board_22
     push local 1
     push constant 1
@@ -286,6 +286,30 @@ label Board_22
     pop local 1
     goto Board_20
 label Board_21
+    push constant 12
+    push constant 51
+    call Output.moveCursor 2
+    pop temp 0
+    push constant 12
+    push constant 50
+    call Output.moveCursor 2
+    pop temp 0
+    push pointer 0
+    call Board.GetCursorX 1
+    call Output.printInt 1
+    pop temp 0
+    push constant 12
+    push constant 57
+    call Output.moveCursor 2
+    pop temp 0
+    push constant 12
+    push constant 56
+    call Output.moveCursor 2
+    pop temp 0
+    push pointer 0
+    call Board.GetCursorY 1
+    call Output.printInt 1
+    pop temp 0
     push constant 0
     return
 function Board.RevealCell 1
@@ -322,9 +346,13 @@ function Board.ToggleFlag 1
     push argument 0
     pop pointer 0
     push argument 1
+    push constant 1
+    sub
     push this 1
     call Math.multiply 2
     push argument 2
+    push constant 1
+    sub
     add
     push this 0
     add
@@ -366,33 +394,73 @@ label Board_29
 label Board_28
     push constant 0
     return
-function Board.SetCursorX 0
+function Board.MoveCursorX 0
     push argument 0
     pop pointer 0
     push this 4
     push argument 1
     add
+    push constant 50
+    lt
+    push this 4
+    push argument 1
+    add
+    push constant 0
+    gt
+    and
+    not
+    if-goto Board_35
+    push this 4
+    push argument 1
+    add
     pop this 4
+    goto Board_34
+label Board_35
+label Board_34
     push constant 0
     return
-function Board.SetCursorY 0
+function Board.MoveCursorY 0
     push argument 0
     pop pointer 0
     push this 5
     push argument 1
     add
+    push constant 50
+    lt
+    push this 5
+    push argument 1
+    add
+    push constant 0
+    gt
+    and
+    not
+    if-goto Board_37
+    push this 5
+    push argument 1
+    add
     pop this 5
+    goto Board_36
+label Board_37
+label Board_36
     push constant 0
     return
 function Board.GetCursorX 0
     push argument 0
     pop pointer 0
     push this 4
+    push constant 5
+    call Math.divide 2
+    push constant 1
+    add
     return
 function Board.GetCursorY 0
     push argument 0
     pop pointer 0
     push this 5
+    push constant 5
+    call Math.divide 2
+    push constant 1
+    add
     return
 function Board.IsWin 0
     push argument 0
@@ -408,14 +476,14 @@ function Board.IsLoss 3
     pop local 1
     push constant 0
     pop local 0
-label Board_34
+label Board_38
     push local 1
     push this 1
     lt
     push this 2
     call Math.multiply 2
     not
-    if-goto Board_35
+    if-goto Board_39
     push local 1
     push this 0
     add
@@ -428,7 +496,7 @@ label Board_34
     call Cell.IsMine 1
     and
     not
-    if-goto Board_37
+    if-goto Board_41
     push constant 1
     neg
     pop local 0
@@ -436,14 +504,14 @@ label Board_34
     push this 2
     call Math.multiply 2
     pop local 1
-    goto Board_36
-label Board_37
-label Board_36
+    goto Board_40
+label Board_41
+label Board_40
     push local 1
     push constant 1
     add
     pop local 1
-    goto Board_34
-label Board_35
+    goto Board_38
+label Board_39
     push local 0
     return
