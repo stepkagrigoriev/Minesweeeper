@@ -30,6 +30,15 @@ class UI {
         return;
     }
 
+    function void GameEnter(){
+        do Output.moveCursor(12, 20);
+        do Output.printString("TO START A GAME");
+        do Output.moveCursor(13, 20);
+        do Output.printString("PLEASE, PRESS ANY KEY");
+        do Random.setSeed();
+        return;
+    }
+
     function void RenderClosedCell(Cell cell){
         var int x,y;
         let x = 24 * cell.GetX() + 125;

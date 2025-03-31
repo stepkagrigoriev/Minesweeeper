@@ -1,6 +1,7 @@
 class Main {
     function void main(){
         var Game minesweeper;
+        do UI.GameEnter();
         let minesweeper = Game.new();
         do minesweeper.GameLoop();
         return;

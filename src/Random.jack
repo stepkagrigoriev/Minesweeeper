@@ -1,17 +1,17 @@
-/* Random.jack
- * By Mark Armbrust
- * http://nand2tetris-questions-and-answers-forum.32033.n3.nabble.com/Random-number-generator-for-hack-cpu-td4025503.html
- * Also see:
- * http://nand2tetris-questions-and-answers-forum.32033.n3.nabble.com/Pseudo-Random-Number-Generator-td4026059.html#a4027617
- * взяли код для randint с форума Nand2Tetris
- */
-
 class Random {
     static int seed;
     
-    function void setSeed(int newSeed) {
-        let seed = newSeed;
+    function void setSeed() {
+        var int key;
+        let seed = 0;
+        let key = Keyboard.keyPressed();
+        while (key = 0) {
+            let seed = seed + 1;
+            let key = Keyboard.keyPressed();
+        }
+        let seed = (131 * seed) + (997 * key);
         return;
+
     }
 
     function int rand() {
