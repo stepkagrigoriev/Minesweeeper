@@ -40,22 +40,22 @@ class Board {
 
     method void CalculateNumbers() {
         var int i, j, x, y, index, count;
-        var Cell cell;
+        var Cell cell1, cell2;
         let i = 0;
         while (i < 10) {
             let j = 0;
             while (j < 10) {
                 let index = (i * 10) + j;
-                let count = 0;
-                let cell = cells[index];
-                if (~cell.IsMine()) {
+                let cell1 = cells[index];
+                if (~cell1.IsMine()) {
+                    let count = 0;
                     let x = -1;
                     while (x < 2) {
                         let y = -1;
                         while (y < 2) {
                             if (((i + x) > -1) & ((i + x) < 10) & ((j + y) > -1) & ((j + y) < 10)) {
-                                let cell = cells[(i + x) * 10 + (j + y)];
-                                if (cell.IsMine()) {
+                                let cell2 = cells[(i + x) * 10 + (j + y)];
+                                if (cell2.IsMine()) {
                                     let count = count + 1;
                                 }
                             }
@@ -63,7 +63,7 @@ class Board {
                         }
                         let x = x + 1;
                     }
-                    do cell.SetAdjasent(count);
+                    do cell1.SetAdjasent(count);
                 }
                 let j = j + 1;
             }
@@ -136,11 +136,11 @@ class Board {
     }
 
     method int GetCursorX(){
-        return (cursorX / 5) + 1;
+        return (cursorX / 5);
     }
 
     method int GetCursorY(){
-        return (cursorY / 5) + 1;
+        return (cursorY / 5);
     }
 
     method boolean IsWin(){

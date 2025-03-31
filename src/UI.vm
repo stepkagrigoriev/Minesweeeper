@@ -356,7 +356,7 @@ function UI.RenderOpenCell 3
     push constant 1
     add
     push local 0
-    push constant 22
+    push constant 23
     add
     push local 1
     push constant 21
@@ -366,114 +366,188 @@ function UI.RenderOpenCell 3
     push constant 1
     call Screen.setColor 1
     pop temp 0
-    push local 2
-    push constant 0
-    eq
+    push argument 0
+    call Cell.IsMine 1
+    not
     not
     if-goto UI_7
-    push local 0
-    push local 1
-    call UI.Render0 2
-    pop temp 0
-    goto UI_6
-label UI_7
-label UI_6
     push local 2
-    push constant 1
+    push constant 0
     eq
     not
     if-goto UI_9
     push local 0
     push local 1
-    call UI.Render1 2
+    call UI.Render0 2
     pop temp 0
     goto UI_8
 label UI_9
 label UI_8
     push local 2
-    push constant 2
+    push constant 1
     eq
     not
     if-goto UI_11
     push local 0
     push local 1
-    call UI.Render2 2
+    call UI.Render1 2
     pop temp 0
     goto UI_10
 label UI_11
 label UI_10
     push local 2
-    push constant 3
+    push constant 2
     eq
     not
     if-goto UI_13
     push local 0
     push local 1
-    call UI.Render3 2
+    call UI.Render2 2
     pop temp 0
     goto UI_12
 label UI_13
 label UI_12
     push local 2
-    push constant 4
+    push constant 3
     eq
     not
     if-goto UI_15
     push local 0
     push local 1
-    call UI.Render4 2
+    call UI.Render3 2
     pop temp 0
     goto UI_14
 label UI_15
 label UI_14
     push local 2
-    push constant 5
+    push constant 4
     eq
     not
     if-goto UI_17
     push local 0
     push local 1
-    call UI.Render5 2
+    call UI.Render4 2
     pop temp 0
     goto UI_16
 label UI_17
 label UI_16
     push local 2
-    push constant 6
+    push constant 5
     eq
     not
     if-goto UI_19
     push local 0
     push local 1
-    call UI.Render6 2
+    call UI.Render5 2
     pop temp 0
     goto UI_18
 label UI_19
 label UI_18
     push local 2
-    push constant 7
+    push constant 6
     eq
     not
     if-goto UI_21
     push local 0
     push local 1
-    call UI.Render7 2
+    call UI.Render6 2
     pop temp 0
     goto UI_20
 label UI_21
 label UI_20
     push local 2
-    push constant 8
+    push constant 7
     eq
     not
     if-goto UI_23
     push local 0
     push local 1
-    call UI.Render8 2
+    call UI.Render7 2
     pop temp 0
     goto UI_22
 label UI_23
 label UI_22
+    push local 2
+    push constant 8
+    eq
+    not
+    if-goto UI_25
+    push local 0
+    push local 1
+    call UI.Render8 2
+    pop temp 0
+    goto UI_24
+label UI_25
+label UI_24
+    goto UI_6
+label UI_7
+    push pointer 0
+    push local 0
+    push local 1
+    call UI.RenderMine 3
+    pop temp 0
+label UI_6
+    push constant 0
+    return
+function UI.RenderMine 0
+    push argument 0
+    pop pointer 0
+    push argument 1
+    push constant 12
+    add
+    push argument 2
+    push constant 3
+    add
+    push argument 1
+    push constant 12
+    add
+    push argument 2
+    push constant 19
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 1
+    push constant 3
+    add
+    push argument 2
+    push constant 11
+    add
+    push argument 1
+    push constant 21
+    add
+    push argument 2
+    push constant 11
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 1
+    push constant 3
+    add
+    push argument 2
+    push constant 3
+    add
+    push argument 1
+    push constant 21
+    add
+    push argument 2
+    push constant 19
+    add
+    call Screen.drawLine 4
+    pop temp 0
+    push argument 1
+    push constant 21
+    add
+    push argument 2
+    push constant 3
+    add
+    push argument 1
+    push constant 3
+    add
+    push argument 2
+    push constant 19
+    add
+    call Screen.drawLine 4
+    pop temp 0
     push constant 0
     return
 function UI.RenderCoordiantes 0
@@ -486,6 +560,8 @@ function UI.RenderCoordiantes 0
     call Output.moveCursor 2
     pop temp 0
     push argument 0
+    push constant 1
+    add
     call Output.printInt 1
     pop temp 0
     push constant 12
@@ -497,6 +573,8 @@ function UI.RenderCoordiantes 0
     call Output.moveCursor 2
     pop temp 0
     push argument 1
+    push constant 1
+    add
     call Output.printInt 1
     pop temp 0
     push constant 0
@@ -593,13 +671,13 @@ function UI.Render1 0
     return
 function UI.Render2 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 4
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 4
@@ -607,13 +685,13 @@ function UI.Render2 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 4
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 10
@@ -621,13 +699,13 @@ function UI.Render2 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 10
     add
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 10
@@ -635,13 +713,13 @@ function UI.Render2 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 10
     add
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 16
@@ -649,13 +727,13 @@ function UI.Render2 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 16
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 16
@@ -666,13 +744,13 @@ function UI.Render2 0
     return
 function UI.Render3 0
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 4
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 16
@@ -680,13 +758,13 @@ function UI.Render3 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 4
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 4
@@ -694,13 +772,13 @@ function UI.Render3 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 10
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 10
@@ -708,13 +786,13 @@ function UI.Render3 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 16
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 16
@@ -725,13 +803,13 @@ function UI.Render3 0
     return
 function UI.Render4 0
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 4
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 16
@@ -739,13 +817,13 @@ function UI.Render4 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 4
     add
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 10
@@ -753,13 +831,13 @@ function UI.Render4 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 10
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 10
@@ -770,13 +848,13 @@ function UI.Render4 0
     return
 function UI.Render5 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 4
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 4
@@ -784,13 +862,13 @@ function UI.Render5 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 10
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 10
@@ -798,13 +876,13 @@ function UI.Render5 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 16
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 16
@@ -812,13 +890,13 @@ function UI.Render5 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 4
     add
     push argument 0
-    push constant 7
+    push constant 9
     add
     push argument 1
     push constant 10
@@ -826,13 +904,13 @@ function UI.Render5 0
     call Screen.drawLine 4
     pop temp 0
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 10
     add
     push argument 0
-    push constant 13
+    push constant 15
     add
     push argument 1
     push constant 16

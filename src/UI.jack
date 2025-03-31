@@ -61,27 +61,40 @@ class UI {
         let y = 22 * cell.GetY() + 25;
         let number = cell.GetAdjasent();
         do Screen.setColor(0);
-        do Screen.drawRectangle(x + 1, y + 1, x + 22, y + 21);
+        do Screen.drawRectangle(x + 1, y + 1, x + 23, y + 21);
         do Screen.setColor(1);
-        if (number = 0) { do UI.Render0(x,y); }
-        if (number = 1) { do UI.Render1(x,y); }
-        if (number = 2) { do UI.Render2(x,y); }
-        if (number = 3) { do UI.Render3(x,y); }
-        if (number = 4) { do UI.Render4(x,y); }
-        if (number = 5) { do UI.Render5(x,y); }
-        if (number = 6) { do UI.Render6(x,y); }
-        if (number = 7) { do UI.Render7(x,y); }
-        if (number = 8) { do UI.Render8(x,y); }
+        if (~cell.IsMine()){
+            if (number = 0) { do UI.Render0(x,y); }
+            if (number = 1) { do UI.Render1(x,y); }
+            if (number = 2) { do UI.Render2(x,y); }
+            if (number = 3) { do UI.Render3(x,y); }
+            if (number = 4) { do UI.Render4(x,y); }
+            if (number = 5) { do UI.Render5(x,y); }
+            if (number = 6) { do UI.Render6(x,y); }
+            if (number = 7) { do UI.Render7(x,y); }
+            if (number = 8) { do UI.Render8(x,y); }
+        }
+        else{
+            do RenderMine(x, y);
+        }
+        return;
+    }
+
+    method void RenderMine(int x, int y){
+        do Screen.drawLine(x + 12, y + 3, x + 12, y + 19);
+        do Screen.drawLine(x + 3, y + 11, x + 21, y + 11);
+        do Screen.drawLine(x + 3, y + 3, x + 21, y + 19);
+        do Screen.drawLine(x + 21, y + 3, x + 3, y + 19);
         return;
     }
 
     function void RenderCoordiantes(int x, int y){
         do Output.moveCursor(12, 51);
         do Output.moveCursor(12, 50);
-        do Output.printInt(x);
+        do Output.printInt(x + 1);
         do Output.moveCursor(12, 57);
         do Output.moveCursor(12, 56);
-        do Output.printInt(y);
+        do Output.printInt(y + 1);
         return;
     }
 
@@ -100,35 +113,35 @@ class UI {
     }
 
     function void Render2(int x, int y){
-        do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
-        do Screen.drawLine(x + 13, y + 4, x + 13, y + 10);
-        do Screen.drawLine(x + 13, y + 10, x + 7, y + 10);
-        do Screen.drawLine(x + 7, y + 10, x + 7, y + 16);
-        do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
+        do Screen.drawLine(x + 9, y + 4, x + 15, y + 4);
+        do Screen.drawLine(x + 15, y + 4, x + 15, y + 10);
+        do Screen.drawLine(x + 15, y + 10, x + 9, y + 10);
+        do Screen.drawLine(x + 9, y + 10, x + 9, y + 16);
+        do Screen.drawLine(x + 9, y + 16, x + 15, y + 16);
         return;
     }
 
     function void Render3(int x, int y){
-        do Screen.drawLine(x + 13, y + 4, x + 13, y + 16);
-        do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
-        do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
-        do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
+        do Screen.drawLine(x + 15, y + 4, x + 15, y + 16);
+        do Screen.drawLine(x + 9, y + 4, x + 15, y + 4);
+        do Screen.drawLine(x + 9, y + 10, x + 15, y + 10);
+        do Screen.drawLine(x + 9, y + 16, x + 15, y + 16);
         return;
     }
 
     function void Render4(int x, int y){
-        do Screen.drawLine(x + 13, y + 4, x + 13, y + 16);
-        do Screen.drawLine(x + 7, y + 4, x + 7, y + 10);
-        do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
+        do Screen.drawLine(x + 15, y + 4, x + 15, y + 16);
+        do Screen.drawLine(x + 9, y + 4, x + 9, y + 10);
+        do Screen.drawLine(x + 9, y + 10, x + 15, y + 10);
         return;
     }
 
     function void Render5(int x, int y){
-        do Screen.drawLine(x + 7, y + 4, x + 13, y + 4);
-        do Screen.drawLine(x + 7, y + 10, x + 13, y + 10);
-        do Screen.drawLine(x + 7, y + 16, x + 13, y + 16);
-        do Screen.drawLine(x + 7, y + 4, x + 7, y + 10);
-        do Screen.drawLine(x + 13, y + 10, x + 13, y + 16);
+        do Screen.drawLine(x + 9, y + 4, x + 15, y + 4);
+        do Screen.drawLine(x + 9, y + 10, x + 15, y + 10);
+        do Screen.drawLine(x + 9, y + 16, x + 15, y + 16);
+        do Screen.drawLine(x + 9, y + 4, x + 9, y + 10);
+        do Screen.drawLine(x + 15, y + 10, x + 15, y + 16);
         return;
     }
 
